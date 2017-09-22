@@ -28,6 +28,15 @@ const row = {
   flexDirection: 'row'
 };
 
+const time = [
+  {
+    assignee: 'John',
+    startDate: 1506025406010,
+    dueDate: 1507025608760,
+    taskTitle: 'Go to home.'
+  }
+];
+
 const Main = () => (
   <div style={grid}>
     <div />
