@@ -1,29 +1,15 @@
 import React from 'react';
 import {
-  assign,
   chain,
-  get,
   has,
   groupBy,
   keys,
   map,
   mapKeys,
   mapValues,
-  range,
-  minBy,
-  maxBy,
-  last
+  range
 } from 'lodash';
-import {
-  addDays,
-  format,
-  startOfMonth,
-  startOfDay,
-  endOfMonth,
-  getDate,
-  getMonth,
-  differenceInDays
-} from 'date-fns';
+import { format, startOfDay, differenceInDays } from 'date-fns';
 import { Grid, RowHeader, ColumnHeader, Row, Cell, Block } from './style';
 import taskList from '../../data/taskList.json';
 
@@ -40,7 +26,8 @@ const listRange = range(
           .value()
       ),
       'x'
-    )
+    ),
+    10
   ),
   parseInt(
     format(
@@ -51,7 +38,8 @@ const listRange = range(
           .value()
       ),
       'x'
-    )
+    ),
+    10
   ) + DAY_MS,
   DAY_MS
 );
@@ -70,7 +58,7 @@ const groupData = groupBy(taskList, _groupBy);
 const dataKeyList = keys(groupData);
 const groupByTime = mapValues(groupData, value =>
   mapKeys(groupBy(value, 'startDate'), (value, key) =>
-    format(startOfDay(parseInt(key)), 'x')
+    format(startOfDay(parseInt(key, 10)), 'x')
   )
 );
 
@@ -79,7 +67,8 @@ function renderCell(value, time) {
     return map(groupByTime[value][time], (item, index) => {
       // Add 1 to include both days
       const dayOffset = parseInt(
-        differenceInDays(item.dueDate, item.startDate) + 1
+        differenceInDays(item.dueDate, item.startDate) + 1,
+        10
       );
       return (
         <Block
