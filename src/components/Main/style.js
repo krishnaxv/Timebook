@@ -8,6 +8,7 @@ export const Grid = styled.div`
 export const Row = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: ${props => props.justifyContent || 'initial'};
 `;
 
 export const Cell = styled.div`
@@ -19,10 +20,16 @@ export const Cell = styled.div`
   display: flex;
 `;
 
-export const GridHeader = styled.div`
+export const RowHeader = styled.div`
   height: 24px;
   position: relative;
   align-items: center;
+  display: flex;
+`;
+
+export const ColumnHeader = styled.div`
+  align-items: center;
+  justify-content: center;
   display: flex;
 `;
 
