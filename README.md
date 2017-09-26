@@ -2,6 +2,8 @@
 
 > v0.1.0
 
+Timebook is a time tracker of personal/professional activities/tasks of a user to increase productivity and efficiency.
+
 ### `yarn bootstrap`
 
 > Run `yarn bootstrap` to bootstrap the project.
